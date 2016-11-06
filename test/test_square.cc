@@ -1,19 +1,14 @@
+#include "tools.hpp"
 #include "../include/catch.hpp"
 #include "../src/aggregation.hpp"
 
 #include <set>
-#include <iostream>
+#include <utility>
 
-int convert2Dto1D(int dim1,
-                  int dim2,
-                  int index1,
-                  int index2)
-{
-  return index1*dim2 + index2;
-}
+using namespace tools;
 
 
-TEST_CASE("find a square", "[square]")
+TEST_CASE("find points of a square", "[square]")
 {
   const int dim1 = 10;
   const int dim2 = 10;
@@ -43,5 +38,34 @@ TEST_CASE("find a square", "[square]")
     agg.aggregateAll();
     std::set<std::pair<int, int> > result = agg.showPointsGivenCluster(0);
     REQUIRE(result == points);
+  }
+
+  SECTION("two squares in the center") {
+    std::set<std::pair<int, int> > points1;
+    points1.insert(std::make_pair(4, 2));
+    points1.insert(std::make_pair(5, 2));
+    points1.insert(std::make_pair(6, 2));
+    points1.insert(std::make_pair(4, 3));
+    points1.insert(std::make_pair(5, 3));
+    points1.insert(std::make_pair(6, 3));
+    std::set<std::pair<int, int> > points2;
+    points2.insert(std::make_pair(4, 6));
+    points2.insert(std::make_pair(5, 6));
+    points2.insert(std::make_pair(4, 6));
+    points2.insert(std::make_pair(5, 6));
+    std::set<std::pair<int, int> > points;
+    points.insert(points1.cbegin(), points1.cend());
+    points.insert(points2.cbegin(), points2.cend());
+
+
+    for (auto &point : points)
+      data[convert2Dto1D(dim1, dim2, point.first, point.second)] = 1.;
+
+    Aggregation agg(data, dim1, dim2, ratio, nx, ny);
+    agg.aggregateAll();
+    std::set<std::pair<int, int> > result1 = agg.showPointsGivenCluster(0);
+    REQUIRE(result1 == points1);
+    std::set<std::pair<int, int> > result2 = agg.showPointsGivenCluster(1);
+    REQUIRE(result2 == points2);
   }
 }
