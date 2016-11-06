@@ -17,6 +17,7 @@ endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 add_subdirectory(src)
+add_subdirectory(test)
 
 enable_testing()
 add_test(NAME test COMMAND unit_test)
