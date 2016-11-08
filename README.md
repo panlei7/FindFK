@@ -1,1 +1,1 @@
-# obtain points along dispersion curves
+# obtain points along dispersion curves using union-find algorithm
