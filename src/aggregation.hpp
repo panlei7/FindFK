@@ -16,7 +16,7 @@ public:
               double ratio,
               int num_stencil_f,
               int num_stencil_k);
-  std::set<std::pair<int, int>> showPointsGivenCluster(int num);
+  std::set<std::pair<int, int> > showPointsGivenCluster(int num);
   void aggregateAll();
 
 private:

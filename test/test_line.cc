@@ -1,6 +1,6 @@
-#include "tools.hpp"
 #include "../include/catch.hpp"
 #include "../src/aggregation.hpp"
+#include "tools.hpp"
 
 #include <set>
 #include <utility>
