@@ -19,13 +19,14 @@ int main(int argc, char *argv[])
   double dmax = file["ratio_max"].as<double>();
   double epsilon = file["epsilon"].as<double>();
   int nshow = file["num_show"].as<int>();
-  std::string dataname = file["file"].as<std::string>();
+  std::string inputname = file["infile"].as<std::string>();
+  std::string outputname = file["outfile"].as<std::string>();
 
   if (dmax > 1. || dmax < 0.) {
     std::cout << "dmax should between 0 and 1" << std::endl;
     return -1;
   }
-  std::ifstream infile(dataname);
+  std::ifstream infile(inputname);
 
   if (!infile) {
     std::cout << "Error opening input file" << std::endl;
@@ -54,7 +55,7 @@ int main(int argc, char *argv[])
   Aggregation agg(data, nf, nk, epsilon, nx, ny, nmax);
   agg.aggregateAll();
 
-  std::ofstream outfile("output.txt");
+  std::ofstream outfile(outputname);
   if (!outfile) {
     std::cout << "Error opening output file" << std::endl;
     return -1;
