@@ -114,8 +114,8 @@ bool Aggregation::approximateMethod(double d1,
   if (d1 <= 0.)
     return false;
   else {
-    double value = std::abs(d1-d2) / d1;
-    return (value < ratio_);
+    double value = std::abs(d1-d2);
+    return (value < ratio_*2);
   }
 }
 
