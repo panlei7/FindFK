@@ -30,7 +30,7 @@ TEST_CASE("find points along a line", "[line]")
     for (auto &point : points)
       data[convert2Dto1D(dim1, dim2, point.first, point.second)] = 1.;
 
-    Aggregation agg(data, dim1, dim2, ratio, nx, ny);
+    Aggregation agg(data, dim1, dim2, ratio, nx, ny, data.size());
     agg.aggregateAll();
     std::set<std::pair<int, int> > result = agg.showPointsGivenCluster(0);
     REQUIRE(result == points);
@@ -48,7 +48,7 @@ TEST_CASE("find points along a line", "[line]")
     for (auto &point : points)
       data[convert2Dto1D(dim1, dim2, point.first, point.second)] = 1.;
 
-    Aggregation agg(data, dim1, dim2, ratio, nx, ny);
+    Aggregation agg(data, dim1, dim2, ratio, nx, ny, data.size());
     agg.aggregateAll();
     std::set<std::pair<int, int> > result = agg.showPointsGivenCluster(0);
     REQUIRE(result == points);
@@ -83,15 +83,15 @@ TEST_CASE("find points along two lines", "[line]")
   points2.insert(std::make_pair(4, 8));
 
   std::set<std::pair<int, int> > points;
-  points.insert(points1.cbegin(), points1.cend());
-  points.insert(points2.cbegin(), points2.cend());
+  points.insert(points1.begin(), points1.end());
+  points.insert(points2.begin(), points2.end());
 
   for (auto &point : points1)
     data[convert2Dto1D(dim1, dim2, point.first, point.second)] = 1.;
   for (auto &point : points2)
     data[convert2Dto1D(dim1, dim2, point.first, point.second)] = 3.;
 
-  Aggregation agg(data, dim1, dim2, ratio, nx, ny);
+  Aggregation agg(data, dim1, dim2, ratio, nx, ny, data.size());
   agg.aggregateAll();
   std::set<std::pair<int, int> > result1 = agg.showPointsGivenCluster(0);
   REQUIRE(result1 == points1);

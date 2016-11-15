@@ -34,7 +34,7 @@ TEST_CASE("find points of a square", "[square]")
     for (auto &point : points)
       data[convert2Dto1D(dim1, dim2, point.first, point.second)] = 1.;
 
-    Aggregation agg(data, dim1, dim2, ratio, nx, ny);
+    Aggregation agg(data, dim1, dim2, ratio, nx, ny, data.size());
     agg.aggregateAll();
     std::set<std::pair<int, int> > result = agg.showPointsGivenCluster(0);
     REQUIRE(result == points);
@@ -61,7 +61,7 @@ TEST_CASE("find points of a square", "[square]")
     for (auto &point : points)
       data[convert2Dto1D(dim1, dim2, point.first, point.second)] = 1.;
 
-    Aggregation agg(data, dim1, dim2, ratio, nx, ny);
+    Aggregation agg(data, dim1, dim2, ratio, nx, ny, data.size());
     agg.aggregateAll();
     std::set<std::pair<int, int> > result1 = agg.showPointsGivenCluster(0);
     REQUIRE(result1 == points1);

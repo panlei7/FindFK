@@ -15,7 +15,8 @@ public:
               int nk,
               double ratio,
               int num_stencil_f,
-              int num_stencil_k);
+              int num_stencil_k,
+              int num_max);
   std::set<std::pair<int, int> > showPointsGivenCluster(int num);
   void aggregateAll();
 
@@ -29,6 +30,8 @@ private:
                              int dim2,
                              int index1,
                              int index2);
+  int convertIndexFromInputToExtended(int index);
+  std::vector<int> sortInputData();
   bool approximateMethod(double d1,
                          double d2);
 
@@ -39,6 +42,7 @@ private:
   int nsk_;
   int dim1_; // 2D dimmensions of extended_data_
   int dim2_;
+  int num_max_; // number of the first max value to use
 
   std::vector<double> extended_data_;
   std::vector<double> input_data_;
