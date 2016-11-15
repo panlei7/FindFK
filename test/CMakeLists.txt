@@ -9,6 +9,4 @@ add_executable(unit_test
   ${test_sources})
 
 target_link_libraries(unit_test
-  findfk_libs
-  ${ARMADILLO_LIBRARIES})
-
+  findfk_libs)
