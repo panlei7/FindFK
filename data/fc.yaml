@@ -1,0 +1,7 @@
+---
+nx: 1
+ny: 1
+ratio_max: 0.2
+epsilon: 0.5
+num_show: 5
+file: input_fc.txt

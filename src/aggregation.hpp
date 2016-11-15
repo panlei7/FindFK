@@ -13,7 +13,7 @@ public:
   Aggregation(std::vector<double>& flatten_array,
               int nf,
               int nk,
-              double ratio,
+              double epsilon,
               int num_stencil_f,
               int num_stencil_k,
               int num_max);
@@ -37,7 +37,7 @@ private:
 
   int nf_;
   int nk_;
-  double ratio_;
+  double epsilon_;
   int nsf_;
   int nsk_;
   int dim1_; // 2D dimmensions of extended_data_

@@ -5,4 +5,6 @@ add_library(findfk_libs
 target_link_libraries(findfk_libs)
 
 add_executable(findfk findfk.cc)
-target_link_libraries(findfk findfk_libs)
+target_link_libraries(findfk
+  findfk_libs
+  ${YAML_CPP_LIBRARIES})

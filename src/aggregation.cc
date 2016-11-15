@@ -17,13 +17,13 @@ namespace {
 Aggregation::Aggregation(std::vector<double>& flatten_array,
                          int nf,
                          int nk,
-                         double ratio,
+                         double epsilon,
                          int num_stencil_f,
                          int num_stencil_k,
                          int num_max):
   nf_(nf),
   nk_(nk),
-  ratio_(ratio),
+  epsilon_(epsilon),
   nsf_(num_stencil_f),
   nsk_(num_stencil_k),
   dim1_(nf+2*num_stencil_f),
@@ -115,7 +115,7 @@ bool Aggregation::approximateMethod(double d1,
     return false;
   else {
     double value = std::abs(d1-d2);
-    return (value < ratio_*2);
+    return (value < epsilon_*2);
   }
 }
 
