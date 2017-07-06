@@ -31,7 +31,9 @@ FindFK is only tested with Clang++-3.8
 		> cd ../examples
 		> ../bin/findfk fk.yaml
 		
-	It will create an output file "output.txt". You can adjust the paremeters in yaml file.
+	It will create an output file. You can adjust the paremeters in `fk.yaml`.
+    Note that, the value of input need to be **normailzed** along the k-axis for
+    each frequency.
 	
 5. Plotting
 
