@@ -29,11 +29,11 @@ if __name__ == "__main__":
         # plt.plot(f[nf], c, '.', label=str(key))
         plt.plot(k[nk]*1000, f[nf], '.', label=str(key))
         if key == 0:
-            mode = 2
+            mode = 1 #2
         elif key == 1:
-            mode = 1
+            mode = 2 #1
         elif key == 2:
-            mode = 3
+            mode = 2 #3
         elif key == 3:
             mode = 4
         elif key == 4:
