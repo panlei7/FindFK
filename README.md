@@ -37,8 +37,8 @@ FindFK is only tested with Clang++-3.8
 	
 5. Plotting
 
-		> ../python/plot_input.py input_fk.txt
-		> ../python/plot_output.py input_fk.txt output_fk.txt
+		> ../python/plot_input.py
+		> ../python/plot_output.py
 		
 **Note**: the input file should contain an array.
 

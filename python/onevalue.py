@@ -13,6 +13,7 @@ if __name__ == "__main__":
         file_k = config["file_k"]
         file_data = config["infile"]
         file_disper = config["outfile"]
+        mode_list = config['mode']
 
     disper = np.loadtxt(file_disper)
     data = np.loadtxt(file_data)
@@ -29,15 +30,15 @@ if __name__ == "__main__":
         # plt.plot(f[nf], c, '.', label=str(key))
         plt.plot(k[nk]*1000, f[nf], '.', label=str(key))
         if key == 0:
-            mode = 1 #2
+            mode = mode_list[0]
         elif key == 1:
-            mode = 2 #1
+            mode = mode_list[1]
         elif key == 2:
-            mode = 2 #3
+            mode = mode_list[2]
         elif key == 3:
-            mode = 4
+            mode = mode_list[3]
         elif key == 4:
-            mode =5
+            mode = mode_list[4]
         for ind_f, ind_k in zip(nf, nk):
             x.append([f[ind_f], k[ind_k]*1000, mode])
         # for ind_f, ind_c in zip(nf, range(len(c))):
