@@ -1,0 +1,8 @@
+---
+nx: 1
+ny: 1
+ratio_max: 0.1
+epsilon: 0.5
+num_show: 5
+infile: input_fc.txt
+outfile: output_fc.txt
